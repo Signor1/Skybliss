@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head tag -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYBLISS | Multi Business Ltd</title>
+    <!-- Bootstrap css link, fontawesome icon css link, preloader css link and custom css link -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/preloader.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- jQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script src="js/preloader.js"></script>
+</head>
+
+<body oncontextmenu="return false">
+    <!-- preloader section starts -->
+    <div class="preloader-wrap">
+        <div class="preloader">
+            <div class="loading-circle loading-circle-one"></div>
+            <div class="loading-circle loading-circle-two"></div>
+            <div class="loading-circle loading-circle-three"></div>
+        </div>
+    </div>
+    <!-- end of preloader section -->
+
+    <!-- general container -->
+    <div class="general">
+        <!-- container fluid -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-md-3 px-lg-4 px-md-3 py-2" id="header">
+                    <!-- Brand/logo -->
+                    <div class="brand px-2">
+                        <h1 class="fw-bold" data-bs-toggle="modal" data-bs-target="#editInvoice">SKYBLISS</h1>
+                        <p class="px-4">RC: <span>*******</span></p>
+                    </div>
+                    <div class="aside">
+                        <!-- Address/location -->
+                        <div class="location">
+                            <h6 class="fw-bold mb-2 text-uppercase">Contact And Address</h6>
+                            <p><i class="fa fa-map-marker"></i><span> #342 World Bank Housing Estate,
+                                    Owerri, Imo State.</span></p>
+                            <p><i class="fa fa-phone-alt"></i> <span>+23490********, +23480********</span></p>
+                            <p><i class="fa fa-envelope"></i> <span
+                                    class="text-decoration-underline">skybliss.info@gmail.com</span>
+                            </p>
+
+                        </div>
+                        <div class="acctDetails">
+                            <h6 class="fw-bold mb-2 text-uppercase">Account Information</h6>
+                            <p>Acct. Name: SKYBLISS BUSINESS LTD</p>
+                            <p>First Bank (Acct.No: **********)</p>
+                            <p>Union Bank (Acct.No: **********)</p>
+                            <p>Kuda Bank (Acct.No: **********)</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- End of brand and location tag -->
+            </div>
+            <!-- end of row containing header -->
+
+            <!-- beginning of finance logger row -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 bg-light  pt-3" id="finance">
+                    <h1 class="text-uppercase fw-bold display-5 text-center my-2" id="logger">Invoice</h1>
+
+                    <div class="py-2" id="clientInvoice">
+                        <!-- Clients details -->
+                        <div>
+                            <h5 class="fw-bold">Billed To:</h5>
+                            <p><i class="fa fa-user"></i> <span id="clientName">Client Name</span></p>
+                            <p><i class="fa fa-map-marker"></i> <span id="clientAddress">Client Address</span></p>
+                            <p><i class="fa fa-phone-alt"></i> <span id="clientContact">Client's Contact</span></p>
+                        </div>
+                        <!-- Invoice number and date of issue -->
+                        <div>
+                            <h5 class="fw-bold">Invoice Number</h5>
+                            <p><i class="fa fa-file-invoice"></i> <span id="invoiceNumber">000000</span></p>
+                            <h5 class="fw-bold">Date of Issue</h5>
+                            <p><i class="fa fa-calendar-alt"></i> <span id="dateOfIssue">25/03/2022</span></p>
+                        </div>
+                        <!-- Total amount of Purchases -->
+                        <div>
+                            <h5 class="fw-bold">Invoice Total</h5>
+                            <p class="h1 fw-bold" id="invoiceTotal">&#8358;<span id="grandTotal">00</span>.00</p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table align-middle table-bordered table-hover" id="invoiceTable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">S/N</th>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Unit Price (&#8358;)</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Total (&#8358;)</th>
+                                            <th scope="col" id="hideColumn">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableBody">
+
+                                    </tbody>
+                                    <caption> </caption>
+                                </table>
+                            </div>
+                            <div class="mx-3 text-center" id="clientInvoiceCal">
+
+                                <!-- Total amount of Purchases -->
+                                <div>
+                                    <h6 class="fw-bold">Total: &#8358;<span id="total">00</span>.00</h6>
+                                </div>
+                            </div>
+                            <div id="signature">
+                                <div class="text-center">
+
+                                    <h6 class="fw-bold">Management</h6>
+                                </div>
+                                <div class="text-center">
+                                    <h6 class="fw-bold">Customer</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section id="dontPrint">
+                        <div class="row my-5 px-lg-4 px-md-4">
+                            <div class="col-12">
+                                <form class="py-4 px-3" id="form">
+                                    <!-- row for client's name and address -->
+                                    <p class="lead mb-4 px-lg-4 px-md-4 px-1" id="direction">Add Customer's Purchases
+                                    </p>
+
+                                    <!-- row for product name and quatity -->
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+                                            <!-- Name of product -->
+                                            <div class="product">
+                                                <input type="text" autocomplete="off" required id="product">
+                                                <label for="name">Name of Product</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-4">
+                                            <!-- Quantity -->
+                                            <div class="quantity">
+                                                <input type="number" autocomplete="off" required id="quantity">
+                                                <label for="quantity">Quantity</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-4">
+                                            <!-- Price -->
+                                            <div class="price">
+                                                <input type="number" autocomplete="off" required id="price">
+                                                <label for="price">unit price (&#8358;)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of row for product name and quatity -->
+
+                                    <!-- button for add and submit -->
+                                    <div class="mt-3" id="btnHolder">
+                                        <!-- button for adding product -->
+                                        <div id="btn">
+                                            <button type="submit" name="add">Add Product</button>
+                                        </div>
+                                        <!-- button for printing -->
+                                        <div id="btn">
+                                            <button type="button" name="print" onclick="window.print()">Print/Save
+                                                Doc</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </section>
+            <!-- footer section -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  mt-4" id="footer">
+                        <p class="text-center py-4">
+                            &nbsp;&nbsp;Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            All Rights Reserved | <span>SKYBLISS</span> Business Ltd.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+            <!-- end of footer section -->
+        </div>
+        <!--end of  container == container-fluid -->
+
+        <!-- Modal for customer details-->
+        <div class="modal fade" id="editInvoice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content" id="content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Invoice Headers</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <p><span class="text-warning">Note <i class="fa fa-exclamation-circle"></i></span> To edit
+                                again, click on the logo.
+                            </p>
+                            <form action='' id="modalForm">
+                                <p>Client Details</p>
+                                <div class="clientName">
+                                    <input type="text" autocomplete="off" required id="cName">
+                                    <label for="name">Client's Name</label>
+                                </div>
+                                <div class="clientAddress">
+                                    <input type="text" autocomplete="off" required id="cAddress">
+                                    <label for="name">Client's Address</label>
+                                </div>
+                                <div class="clientPhoneNo">
+                                    <input type="number" autocomplete="off" required id="cPhone">
+                                    <label for="name">Client's Tel No.</label>
+                                </div>
+                                <div id="btn" class="mt-3">
+                                    <button type="submit" data-bs-dismiss="modal" aria-label="Close">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of modal for vendor / client details  -->
+    </div>
+    <!-- general content holder -->
+
+    <!-- Bootstrap javascript links -->
+    <script src="js/bootstrap js/bootstrap.bundle.js"></script>
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('editInvoice'), {})
+        myModal.toggle()
+    </script>
+    <!-- Custom js link -->
+    <script src="js/vendorClient.js"></script>
+    <script src="js/addProducts.js"></script>
+</body>
+
+</html>

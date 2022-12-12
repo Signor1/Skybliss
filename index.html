@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head tag -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SKYBLISS | Multi Business Ltd</title>
+	<!-- Bootstrap css link, fontawesome icon css link, preloader css link and custom css link -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/cover.css">
+	<link href="css/preloader.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	<!-- Google font link -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<!-- jQuery link -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+	<script src="js/preloader.js"></script>
+</head>
+
+<body oncontextmenu="return false">
+	<!-- preloader section starts -->
+	<div class="preloader-wrap">
+		<div class="preloader">
+			<div class="loading-circle loading-circle-one"></div>
+			<div class="loading-circle loading-circle-two"></div>
+			<div class="loading-circle loading-circle-three"></div>
+		</div>
+	</div>
+	<!-- end of preloader section -->
+
+	<!-- general container -->
+	<div class="general">
+
+		<div class="cover">
+			<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="img/interior 3.jpeg" class="d-block w-100" alt="Image">
+					</div>
+					<div class="carousel-item">
+						<img src="img/interior 2.jpeg" class="d-block w-100" alt="Image">
+					</div>
+					<div class="carousel-item">
+						<img src="img/interior 1.jpeg" class="d-block w-100" alt="Image">
+					</div>
+					<div class="carousel-item">
+						<img src="img/interior 4.jpeg" class="d-block w-100" alt="Image">
+					</div>
+				</div>
+			</div>
+
+			<div class="hero">
+				<h1 class="brandName">SKYBLISS</h1>
+				<h2 class="fw-bolder">Multi Business Ltd</h2>
+				<button type="button" id="btnTrig" class="btn btn-danger btn-lg" data-bs-toggle="modal"
+					data-bs-target="#getPin"><i class="ri-key-2-fill"></i> Access</button>
+			</div>
+			<footer>
+				<p class="text-center py-4"><span>SKYBLISS</span> | Multi Business Ltd.
+					&nbsp;&nbsp;Copyright &copy;
+					<script>
+						document.write(new Date().getFullYear());
+					</script>
+					All Rights Reserved.
+				</p>
+			</footer>
+
+
+		</div>
+
+
+
+	</div>
+
+	<!-- modal for pin request  -->
+	<div class="modal fade" id="getPin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content" id="content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Access Authentication</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+
+						<div class="pinReq">
+							<h4>Enter Pin - 0000</h4>
+							<div id="errMsg"></div>
+							<div class="pin-field">
+								<input type="number" maxlength="1" autofocus id="firstInput">
+								<input type="number" maxlength="1">
+								<input type="number" maxlength="1">
+								<input type="number" maxlength="1">
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Bootstrap javascript links -->
+	<script src="js/bootstrap js/bootstrap.bundle.js"></script>
+	<script src="js/auth.js"></script>
+</body>
+
+</html>

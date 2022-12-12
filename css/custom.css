@@ -1,0 +1,858 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.general {
+    display: none;
+}
+
+/* header styling */
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    background-color: #eee;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+#header .brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* width: 40%; */
+}
+
+.brand h1 {
+    cursor: pointer;
+    color: #f32424;
+}
+
+.brand p {
+    color: #121212;
+    font-weight: 500;
+}
+
+#header .aside {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 50%;
+}
+
+#header .aside .location {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+}
+
+#header .aside .location h6 {
+    color: #f32424;
+}
+
+#header .aside .location p {
+    color: #121212;
+    font-size: 14px;
+    line-height: normal;
+    display: inline-flex;
+    gap: 0.3rem;
+    align-items: flex-start;
+    font-weight: 500;
+}
+
+#header .aside .acctDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+}
+
+#header .aside .acctDetails h6 {
+    color: #f32424;
+}
+
+#header .aside .acctDetails p {
+    color: #121212;
+    font-size: 14px;
+}
+
+/* finance logger/ invoice styling */
+#logger {
+    color: #121212;
+    position: relative;
+}
+
+#logger::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #f32424;
+    top: -1rem;
+    left: 49.6%;
+    z-index: 2;
+}
+
+/* Client info, invoice number, date of Issue, invoice total styling */
+#clientInvoice {
+    background: #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: relative;
+}
+
+#clientInvoice::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #121212;
+    position: absolute;
+    bottom: -0.5rem;
+
+}
+
+#clientInvoice h5 {
+    color: #f32424;
+}
+
+#clientInvoice p {
+    color: #121212;
+}
+
+/* invoice table styling */
+table {
+    border: 1px solid #121212 !important;
+    text-align: center;
+}
+
+table thead {
+    background-color: #121212;
+    color: #f32424;
+}
+
+table tbody {
+    color: #121212;
+}
+
+/* styling the delete button  */
+#deleteBtn {
+    text-transform: uppercase;
+    padding: 8px 15px;
+    border: none;
+    outline: none;
+    background-color: #f32424;
+    color: #eee;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#deleteBtn:hover {
+    color: #f32424;
+}
+
+#deleteBtn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #121212;
+    transition: all 1s;
+    z-index: -1;
+    transform: translateX(-100%);
+}
+
+#deleteBtn:hover::before {
+    transform: translateX(0);
+}
+
+/* autocrement the serial number of cell[0] of every table row */
+#invoiceTable {
+    counter-reset: serial-number;
+}
+
+#invoiceTable tr td:first-child:before {
+    counter-increment: serial-number;
+    content: counter(serial-number);
+}
+
+/* subtotal, tax and total styling */
+#clientInvoiceCal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#clientInvoiceCal h6 {
+    color: #121212;
+    font-weight: 500;
+}
+
+/* signature */
+#signature {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6rem 0 0;
+}
+
+#signature div {
+    width: 30%;
+    position: relative;
+}
+
+#signature div:last-child {
+    align-self: flex-end;
+}
+
+#signature h6 {
+    color: #f32424;
+    position: relative;
+}
+
+#signature div h6::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: -0.7rem;
+    left: 0;
+    background-color: #121212;
+}
+
+/* form styling */
+#form {
+    background-color: #121212;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+#form #direction {
+    color: #f32424;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.product,
+.quantity,
+.price {
+    position: relative !important;
+    width: 100%;
+}
+
+.product input,
+.quantity input,
+.price input {
+    position: relative;
+    width: 100%;
+    height: 35px;
+    outline: 1px solid #f32424;
+    border: none;
+    background-color: #121212;
+    color: #eee;
+    padding: 0 10px;
+}
+
+.product label,
+.quantity label,
+.price label {
+    position: absolute;
+    top: 4px;
+    left: 15px;
+    text-transform: uppercase;
+    color: #f32424;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #121212;
+    cursor: text;
+    transition: all 200ms ease-in;
+}
+
+.product input:focus,
+.quantity input:focus,
+.price input:focus {
+    outline-color: #eee;
+}
+
+.product input:focus~label,
+#product:valid~label,
+.quantity input:focus~label,
+#quantity:valid~label,
+.price input:focus~label,
+#price:valid~label {
+    top: -0.6rem;
+    padding: 0 3px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #eee;
+}
+
+/* removing the inner spin inside input types of number */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* styling the button for add product */
+#btnHolder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalForm #btn {
+    width: 150px;
+    margin: 0 auto;
+}
+
+#btn {
+    width: 200px;
+    margin: 0 10px;
+}
+
+#btn button {
+    width: 100%;
+    text-transform: uppercase;
+    padding: 10px 0;
+    border: none;
+    background-color: #f32424;
+    color: #121212;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#btn button:hover {
+    color: #121212;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+#btn button::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #eee;
+    transition: all 1s;
+    z-index: -1;
+    transform: translateX(-100%);
+}
+
+#btn button:hover::before {
+    transform: translateX(0);
+}
+
+/* Footer styling */
+footer .row #footer {
+    background-color: #eee;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+
+footer p {
+    color: #121212;
+    font-size: 0.9rem;
+}
+
+footer p span {
+    color: #f32424;
+    font-weight: bold;
+}
+
+footer p a {
+    background-color: #f32424 !important;
+    color: #121212 !important;
+    font-weight: 500 !important;
+}
+
+/* Modal styling */
+#content {
+    background: #121212;
+}
+
+#content h5 {
+    color: #eee;
+}
+
+.btn-close {
+    box-shadow: none !important;
+}
+
+.modal-body .container>p {
+    font-size: 0.9rem;
+    color: #eee;
+    font-weight: 100;
+}
+
+#modalForm p {
+    color: #eee;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.vendorBrandName,
+.vendorBizType,
+.vendorCAC,
+.vendorAdress,
+.vendorZip,
+.vendorTel,
+.vendorEmail,
+.clientName,
+.clientAddress,
+.clientPhoneNo {
+    position: relative !important;
+    width: 100%;
+}
+
+.vendorBrandName input,
+.vendorBizType input,
+.vendorCAC input,
+.vendorAdress input,
+.vendorZip input,
+.vendorTel input,
+.vendorEmail input,
+.clientName input,
+.clientAddress input,
+.clientPhoneNo input {
+    position: relative;
+    width: 100%;
+    height: 35px;
+    outline: 1px solid #eee;
+    border: none;
+    background-color: #121212;
+    color: #eee;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.vendorBrandName label,
+.vendorBizType label,
+.vendorCAC label,
+.vendorAdress label,
+.vendorZip label,
+.vendorTel label,
+.vendorEmail label,
+.clientName label,
+.clientAddress label,
+.clientPhoneNo label {
+    position: absolute;
+    top: 4px;
+    left: 15px;
+    text-transform: uppercase;
+    color: #eee;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #121212;
+    cursor: text;
+    transition: all 200ms ease-in;
+}
+
+.vendorBrandName input:focus,
+.vendorBizType input:focus,
+.vendorCAC input:focus,
+.vendorAdress input:focus,
+.vendorZip input:focus,
+.vendorTel input:focus,
+.vendorEmail input:focus,
+.clientName input:focus,
+.clientAddress input:focus,
+.clientPhoneNo input:focus {
+    outline-color: #eee;
+}
+
+.vendorBrandName input:focus~label,
+#brand:valid~label,
+.vendorBizType input:focus~label,
+#business:valid~label,
+.vendorCAC input:focus~label,
+#CACno:valid~label,
+.vendorAdress input:focus~label,
+#vAddress:valid~label,
+.vendorZip input:focus~label,
+#zipNo:valid~label,
+.vendorTel input:focus~label,
+#phoneNo:valid~label,
+.vendorEmail input:focus~label,
+#vEmail:valid~label,
+.clientName input:focus~label,
+#cName:valid~label,
+.clientAddress input:focus~label,
+#cAddress:valid~label,
+.clientPhoneNo input:focus~label,
+#cPhone:valid~label {
+    top: -0.6rem;
+    padding: 0 3px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #eee;
+}
+
+/* Media query for the header */
+@media only screen and (max-width: 767px) {
+    #header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    #header .brand {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 95%;
+    }
+
+
+    p {
+        font-size: 15px;
+    }
+
+    #header .aside {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    #header .aside .location {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 90%;
+    }
+
+    #header .aside .location p {
+        font-size: 15px;
+    }
+
+    #header .aside .acctDetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 90%;
+    }
+
+    #header .aside .acctDetails p {
+        font-size: 15px;
+    }
+
+    #logger::before {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        background-color: #f32424;
+        top: -1rem;
+        left: 48.8%;
+    }
+
+    .product label,
+    .quantity label,
+    .price label {
+        font-size: 0.8rem;
+        top: 6px;
+    }
+
+    .product input:focus~label,
+    #product:valid~label,
+    .quantity input:focus~label,
+    #quantity:valid~label,
+    .price input:focus~label,
+    #price:valid~label {
+        top: -0.7rem;
+        font-size: 0.8rem;
+    }
+
+    #btn {
+        width: 150px;
+        margin: 0 8px;
+    }
+
+    #btn button {
+        font-size: 0.8rem;
+    }
+
+    #clientInvoice {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #clientInvoice div {
+        padding: 0 20px;
+    }
+
+    #clientInvoiceCal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #signature {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5.5rem;
+        margin: 6rem 0 0;
+    }
+
+    #signature div {
+        width: 70%;
+    }
+
+    #signature div:last-child {
+        align-self: center;
+    }
+}
+
+/* media query for ipad  */
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+    #header .brand {
+        width: 30%;
+    }
+
+    #header .aside {
+        width: 65%;
+    }
+
+    #header .aside .location {
+        width: 50%;
+    }
+
+    #header .aside .location p {
+        color: #121212;
+        font-size: 14px;
+    }
+
+    #header .aside .acctDetails {
+        width: 50%;
+    }
+
+    #header .aside .acctDetails p {
+        color: #121212;
+        font-size: 14px;
+    }
+}
+
+/* media print css */
+@media print {
+    #header {
+        padding-top: 0.8rem;
+    }
+
+    #header .brand {
+        width: 30%;
+    }
+
+    #header .aside {
+        width: 66%;
+    }
+
+    #header .aside .location {
+        width: 48%;
+    }
+
+    #header .aside .location p {
+        font-size: 12px;
+    }
+
+    #header .aside .acctDetails {
+        width: 48%;
+    }
+
+    #header .aside .acctDetails p {
+        font-size: 12px;
+    }
+
+    #logger::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #f32424;
+        top: -1rem;
+        left: 50%;
+        z-index: 2;
+    }
+
+    #dontPrint {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    #hideColumn {
+        display: none;
+    }
+
+    p {
+        font-size: 12px !important;
+    }
+
+    #invoiceTotal {
+        font-size: 1.2rem !important;
+    }
+
+    #clientInvoice {
+        padding-bottom: 0 !important;
+    }
+
+    #signature {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 1.2rem !important;
+    }
+
+    h6,
+    h5,
+    h4,
+    h2,
+    h3 {
+        font-size: 0.9rem !important;
+    }
+
+    th {
+        font-size: 0.9rem !important;
+    }
+
+    td {
+        font-size: 12px !important;
+    }
+}
+
+/* index card styling */
+@media print and (min-width:4in) and (max-width: 6in) {
+    #header {
+        padding-top: 0.8rem;
+    }
+
+    #header .brand {
+        width: 30%;
+    }
+
+    #header .aside {
+        width: 66%;
+    }
+
+    #header .aside .location {
+        width: 48%;
+    }
+
+    #header .aside .location p {
+        font-size: 12px;
+    }
+
+    #header .aside .acctDetails {
+        width: 48%;
+    }
+
+    #header .aside .acctDetails p {
+        font-size: 12px;
+    }
+
+    #logger::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #f32424;
+        top: -1rem;
+        left: 50%;
+        z-index: 2;
+    }
+
+    #dontPrint {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    #hideColumn {
+        display: none;
+    }
+
+    p {
+        font-size: 12px !important;
+    }
+
+    #invoiceTotal {
+        font-size: 1.2rem !important;
+    }
+
+    #clientInvoice {
+        padding-bottom: 0 !important;
+    }
+
+    #signature {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 1.2rem !important;
+    }
+
+    h6,
+    h5,
+    h4,
+    h2,
+    h3 {
+        font-size: 0.9rem !important;
+    }
+
+    th {
+        font-size: 0.9rem !important;
+    }
+
+    td {
+        font-size: 12px !important;
+    }
+}
